@@ -1,0 +1,1 @@
+# dkuppela-kurv-aws-training
