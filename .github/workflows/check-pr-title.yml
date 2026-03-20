@@ -1,0 +1,21 @@
+name: Compliance Check
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  check-pr-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR Title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          if [[ "$PR_TITLE" == *"PR"* ]]; then
+            echo "Success: Title contains 'PR'"
+            exit 0
+          else
+            echo "Failure: Title '$PR_TITLE' must include the letters 'PR'"
+            exit 1
+          fi
