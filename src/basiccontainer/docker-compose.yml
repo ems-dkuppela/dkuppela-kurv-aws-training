@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  loop-runner:
+    build: .
+    container_name: loop-runner
+    tty: true
+    stdin_open: true
+    restart: "no"
